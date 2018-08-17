@@ -4,6 +4,9 @@
 #include "delay.h"
 #include "laser.h"
 #include "exti.h"
+#include "huoyan.h"
+#include "huidu.h"
+#include "fan.h"
 extern u16 flag;
 void DoubleMotorInit(void)
 {
@@ -152,11 +155,6 @@ void room2(void)
 	{
 		go();
 	}
-
-
-
-
-
 
 }
 

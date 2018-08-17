@@ -16,6 +16,8 @@
 #define IN3 PAout(5)
 #define IN4 PAout(6)
 #define ENB PAout(7)
+
+
 void DoubleMotorInit(void);
 void LEFTMOTORz(void);
 void LEFTMOTORf(void);
@@ -28,6 +30,6 @@ void right(void);
 void avoid1(void);
 void avoid2(void);
 void room1(void);
-void room2(void)
+void room2(void);
 
 #endif

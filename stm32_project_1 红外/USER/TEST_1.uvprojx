@@ -365,7 +365,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\STM32F10x_FWLib\inc;..\USER;..\CORE;..\SYSTEM\sys;..\SYSTEM\delay;..\SYSTEM\usart;..\HARDWARE\KEY;..\HARDWARE\LED;..\HARDWARE\TIMER;..\HARDWARE\LASER;..\HARDWARE\PWM;..\HARDWARE\MOTOR;..\HARDWARE\EXTI;..\HARDWARE\HUIDU;..\HARDWARE\FIRE</IncludePath>
+              <IncludePath>..\STM32F10x_FWLib\inc;..\USER;..\CORE;..\SYSTEM\sys;..\SYSTEM\delay;..\SYSTEM\usart;..\HARDWARE\KEY;..\HARDWARE\LED;..\HARDWARE\TIMER;..\HARDWARE\LASER;..\HARDWARE\PWM;..\HARDWARE\MOTOR;..\HARDWARE\EXTI;..\HARDWARE\HUIDU;..\HARDWARE\FIRE;..\HARDWARE\FAN</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -627,6 +627,16 @@
               <FileName>huoyan.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\HARDWARE\FIRE\huoyan.h</FilePath>
+            </File>
+            <File>
+              <FileName>fan.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\FAN\fan.c</FilePath>
+            </File>
+            <File>
+              <FileName>fan.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\HARDWARE\FAN\fan.h</FilePath>
             </File>
           </Files>
         </Group>

@@ -77,12 +77,32 @@ void  PWM_Init(u16 arrL,u16 pscL,u16 arrR, u16 pscR)
 /****************************************************************/
 //舵机旋转的程序
 
-void  PWM_DJ_Init(u16 arr,u16 psc)   
-{
+void  PWM_DJ_Init(u16 arr,u16 psc)   //199 /7199 /
+{ 
 	
-	GPIO_InitTypeDef GPIO_InitStructure;
+	GPIO_InitTypeDef GPIO_InitStructure;  
 	TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure;//初始化结构体
 	TIM_OCInitTypeDef TIM_OCInitStructure;
 	
+	GPIO_InitStructure.GPIO_Mode=GPIO_Mode_AF_PP;
+	GPIO_InitStructure.GPIO_Pin=GPIO_Pin_1;
+	GPIO_InitStructure.GPIO_Speed=GPIO_Speed_50MHz;
+	GPIO_Init(GPIOB,&GPIO_InitStructure);  //初始化舵机口
 	
+	TIM_TimeBaseStructure.TIM_Period = arr;
+	TIM_TimeBaseStructure.TIM_Prescaler =psc;
+	TIM_TimeBaseStructure.TIM_ClockDivision = 0; //:TDTS = Tck_tim
+	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up; //
+
+	TIM_TimeBaseInit(TIM3, &TIM_TimeBaseStructure);//初始化TIM3
+	
+	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM2;
+	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable; 
+	TIM_OCInitStructure.TIM_Pulse = 0; 
+	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High; 
+	
+	TIM_OC4Init(TIM3, &TIM_OCInitStructure);
+	
+	TIM_OC3PreloadConfig(TIM3, TIM_OCPreload_Enable);
+	TIM_Cmd(TIM3, ENABLE);
 }
